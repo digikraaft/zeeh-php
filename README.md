@@ -47,6 +47,7 @@ A list of the available methods are documented below:
 #### Bvn
 * `advancedLookUp(string $bvn) : Array|Object` - Generates user data from BVN
 * `simpleLookUp(string $bvn) : Array|Object` - Generates user data from BVN
+* `verifySelfie(string, $bvn, string $base64ImageString) : Array|Object` - Perform selfie verification using a valid BVN
 
 #### Cac
 * `advancedLookUp(string $rcNumber) : Array|Object` - Fetch and verify SMEs, corporate organizations and individuals using Corporate Affairs Commission (CAC)

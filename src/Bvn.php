@@ -3,6 +3,7 @@
 
     namespace Digikraaft\Zeeh;
 
+    use Digikraaft\Zeeh\Exceptions\ApiErrorException;
     use Digikraaft\Zeeh\Exceptions\InvalidArgumentException;
     use Digikraaft\Zeeh\Exceptions\IsNullException;
 
@@ -34,5 +35,21 @@
             ]);
 
             return static::staticRequest('GET', $url);
+        }
+
+        /**
+         * @throws InvalidArgumentException
+         * @throws ApiErrorException
+         * @throws IsNullException
+         * @link https://zeehdocs.zeeh.africa/endpoints/endpoints-desk/kyc/facial-verification#verify-with-bvn
+         */
+        public static function verifySelfie(string $bvn, string $base64SelfieImage) : array|object
+        {
+            $url = static::endPointUrl("bvn/live/selfie-verification");
+
+            return static::staticRequest('POST', $url, [
+                'selfieImage' => $base64SelfieImage,
+                'bvn' => $bvn,
+            ]);
         }
     }
